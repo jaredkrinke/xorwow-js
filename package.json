@@ -1,10 +1,13 @@
 {
   "name": "xorwow-js",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "JavaScript implementation of the xorwow pseudo-random number generator",
-  "main": "xorwow.js",
+  "main": "xorwow",
+  "typings": "xorwow",
   "scripts": {
-    "test": "npx mocha"
+    "build": "copy /y package.json dist && tsc -p .",
+    "test": "mocha --require ts-node/register test/*.spec.ts",
+    "watch:test": "npx mocha --watch --require ts-node/register test/*.spec.ts --watch --watch-extensions ts"
   },
   "repository": {
     "type": "git",
@@ -12,12 +15,12 @@
   },
   "author": "Jared Krinke",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jaredkrinke/xorwow-js/issues"
-  },
   "homepage": "https://github.com/jaredkrinke/xorwow-js#readme",
   "devDependencies": {
+    "@types/mocha": "^5.2.7",
     "assert": "^2.0.0",
-    "mocha": "^6.2.2"
+    "mocha": "^6.2.2",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
   }
 }
