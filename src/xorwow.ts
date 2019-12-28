@@ -3,14 +3,7 @@ export default class Xorwow {
 
     private counter: number;
 
-    public constructor(private a?: number, private b?: number, private c?: number, private d?: number) {
-        if (a === undefined || b === undefined || c === undefined || d === undefined) {
-            this.a = Xorwow.randomUInt32();
-            this.b = Xorwow.randomUInt32();
-            this.c = Xorwow.randomUInt32();
-            this.d = Xorwow.randomUInt32();
-        }
-
+    public constructor(private a: number, private b: number, private c: number, private d: number) {
         this.counter = 0;
     }
 
@@ -34,10 +27,5 @@ export default class Xorwow {
 
     public nextDouble(): number {
         return this.nextUInt32() / Xorwow.onePastUInt32Max;
-    }
-
-    private static randomUInt32() {
-        // TODO: Consider using crypto.getRandomValues
-        return Math.floor(Math.random() * Xorwow.onePastUInt32Max) >>> 0;
     }
 }
